@@ -154,8 +154,33 @@ def main():
 
     # Page 1: Calculator List
     if st.session_state.current_calculator is None:
+
+        # New section: User Instructions
+        with st.expander("Grassjelly Calculator Instructions", expanded=True):
+            st.markdown("""
+            ### Grassjelly Guide 
+
+            1. **Create a Calculator:**
+               - Enter your trip names
+               - Create New Calculator = Create a trip
+
+            2. **Manage Your Calculator:**
+               - Click "Open" to access an existing calculator
+               - Use "Delete" to remove a calculator you no longer need
+
+            3. **Inside a Calculator:**
+               - Add friends 
+               - Enter bills, who paid and how to split
+               - Current Balance: See who owes who
+               - Check the expense history
+               - Cancel incorrect entries
+               - Export a PDF report 
+
+            4. **NO-GO CRITERIA:**
+               - Removing friends can only be done at the **START**
+               - Do not attempt to remove friends after submission of bills
+            """)
         st.header("My Calculators")
-        
         for calc_name in list(st.session_state.calculators.keys()):  # Use list() to avoid runtime modification issues
             col1, col2, col3 = st.columns([3, 1, 1])
             with col1:
